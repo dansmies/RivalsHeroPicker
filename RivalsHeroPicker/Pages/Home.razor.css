@@ -1,0 +1,20 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content ul {
+    width: auto;
+    border: 1px solid blue;
+    list-style-type: none;
+}
+.content ul li {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.content ul li label {
+    padding: 0 10px;
+}

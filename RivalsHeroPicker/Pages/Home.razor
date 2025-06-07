@@ -1,0 +1,75 @@
+﻿@page "/"
+
+<PageTitle>Rivals Picker</PageTitle>
+<h1 class="content">Rivals Hero Picker</h1>
+<p class="content" role="status">Your Hero: @_hero</p>
+
+<div class="content">
+    <ul>
+        <li>
+            <input type="checkbox" id="banTanks" checked="@BanTanks" @oninput="UpdateTanks"/>
+            <label for="banTanks">Ban Tanks?</label>
+        </li>
+
+        <li>
+            <input type="checkbox" id="banDps" checked="@BanDps" @oninput="UpdateDps"/>
+            <label for="banDps">Ban DPS?</label>
+        </li>
+
+        <li>
+            <input type="checkbox" id="banHealers" checked="@BanHealers" @oninput="UpdateHealers"/>
+            <label for="banHealers">Ban Healers?</label>
+        </li>
+
+        <li>
+            <button class="btn btn-primary" @onclick="PickHero">Choose Your Hero</button>
+        </li>
+    </ul>
+</div>
+@code {
+    [Parameter] public bool BanTanks { get; set; } = false;
+    [Parameter] public bool BanDps { get; set; } = false;
+    [Parameter] public bool BanHealers { get; set; } = false;
+    
+    private string _hero = "";
+    private readonly List<string> _tanks = ["Captain America", "Doctor Strange", "Emma Frost", "Groot", "Hulk", "Magneto", "Peni Parker", "The Thing", "Thor", "Venom"];
+    private readonly List<string> _dps = ["Black Panther", "Black Widow", "Hawkeye", "Helo", "Human Torch", "Iron Fist", "Iron Man", "Magik", "Mister Fantastic", "Moon Knight", "Namor", "Psylocke", "Scarlet Witch", "Spider-Man", "Squirrel Girl", "Star-Lord", "Storm", "The Punisher", "Winter Soldier", "Wolverine"];
+    private readonly List<string> _healers = ["Adam Warlock", "Cloak & Dagger", "Invisible Woman", "Jeff The Land Shark", "Loki", "Luna Snow", "Mantis", "Rocket Raccoon", "Ultron"];
+    private readonly List<string> _heroes = [];
+    private readonly Random _rnd = new();
+    private int _r;
+
+    private void PickHero()
+    {
+        _hero = "";
+        _heroes.Clear();
+        if (BanTanks == false) { _heroes.AddRange(_tanks); }
+        if (BanDps == false) { _heroes.AddRange(_dps); }
+        if (BanHealers == false) { _heroes.AddRange(_healers); }
+        _r = _rnd.Next(_heroes.Count);
+        _hero = _heroes[_r];
+    }
+
+    protected override void OnParametersSet()
+    {
+        BanTanks = BanTanks;
+        BanDps = BanDps;
+        BanHealers = BanHealers;
+    }
+
+    private void UpdateTanks(ChangeEventArgs e)
+    {
+        BanTanks = (bool)(e.Value ?? false);
+    }
+    
+    private void UpdateDps(ChangeEventArgs e)
+    {
+        BanDps = (bool)(e.Value ?? false);
+    }
+    
+    private void UpdateHealers(ChangeEventArgs e)
+    {
+        BanHealers = (bool)(e.Value ?? false);
+    }
+
+}
