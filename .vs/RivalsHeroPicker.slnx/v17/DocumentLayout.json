@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\danie\\source\\repos\\dansmies\\RivalsHeroPicker\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4A070656-B8BF-8AF3-65FC-6E609D77FA9C}|RivalsHeroPicker\\RivalsHeroPicker.csproj|c:\\users\\danie\\source\\repos\\dansmies\\rivalsheropicker\\rivalsheropicker\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A070656-B8BF-8AF3-65FC-6E609D77FA9C}|RivalsHeroPicker\\RivalsHeroPicker.csproj|solutionrelative:rivalsheropicker\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\dansmies\\RivalsHeroPicker\\RivalsHeroPicker\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "RivalsHeroPicker\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\dansmies\\RivalsHeroPicker\\RivalsHeroPicker\\Pages\\Home.razor",
+              "RelativeToolTip": "RivalsHeroPicker\\Pages\\Home.razor",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAD0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-08T01:11:18.659Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -7,6 +7,10 @@
 <div class="content">
     <ul>
         <li>
+            <input type="checkbox" id="jonMode" checked="@JonMode" @oninput="GoJonMode" />
+            <label for="jonMode">Enter Jon Mode</label>
+        </li>
+        <li>
             <input type="checkbox" id="banTanks" checked="@BanTanks" @oninput="UpdateTanks"/>
             <label for="banTanks">Ban Tanks?</label>
         </li>
@@ -30,7 +34,8 @@
     [Parameter] public bool BanTanks { get; set; } = false;
     [Parameter] public bool BanDps { get; set; } = false;
     [Parameter] public bool BanHealers { get; set; } = false;
-    
+    [Parameter] public bool JonMode { get; set; } = false;
+
     private string _hero = "";
     private readonly List<string> _tanks = ["Captain America", "Doctor Strange", "Emma Frost", "Groot", "Hulk", "Magneto", "Peni Parker", "The Thing", "Thor", "Venom"];
     private readonly List<string> _dps = ["Black Panther", "Black Widow", "Hawkeye", "Hela", "Human Torch", "Iron Fist", "Iron Man", "Magik", "Mister Fantastic", "Moon Knight", "Namor", "Psylocke", "Scarlet Witch", "Spider-Man", "Squirrel Girl", "Star-Lord", "Storm", "The Punisher", "Winter Soldier", "Wolverine"];
@@ -43,11 +48,18 @@
     {
         _hero = "";
         _heroes.Clear();
-        if (BanTanks == false) { _heroes.AddRange(_tanks); }
-        if (BanDps == false) { _heroes.AddRange(_dps); }
-        if (BanHealers == false) { _heroes.AddRange(_healers); }
-        _r = _rnd.Next(_heroes.Count);
-        _hero = _heroes[_r];
+        if (JonMode == true)
+        {
+            _hero = "Scarlet Witch";
+        }
+        else
+        {
+            if (BanTanks == false) { _heroes.AddRange(_tanks); }
+            if (BanDps == false) { _heroes.AddRange(_dps); }
+            if (BanHealers == false) { _heroes.AddRange(_healers); }
+            _r = _rnd.Next(_heroes.Count);
+            _hero = _heroes[_r];
+        } 
     }
 
     protected override void OnParametersSet()
@@ -55,21 +67,26 @@
         BanTanks = BanTanks;
         BanDps = BanDps;
         BanHealers = BanHealers;
+        JonMode = JonMode;
     }
 
     private void UpdateTanks(ChangeEventArgs e)
     {
         BanTanks = (bool)(e.Value ?? false);
     }
-    
+
     private void UpdateDps(ChangeEventArgs e)
     {
         BanDps = (bool)(e.Value ?? false);
     }
-    
+
     private void UpdateHealers(ChangeEventArgs e)
     {
         BanHealers = (bool)(e.Value ?? false);
     }
 
+    private void GoJonMode(ChangeEventArgs e)
+    {
+        JonMode = (bool)(e.Value ?? false);
+    }
 }
