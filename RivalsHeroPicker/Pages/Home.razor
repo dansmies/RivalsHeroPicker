@@ -25,11 +25,13 @@
             <label for="banHealers">Ban Healers?</label>
         </li>
 
-        <li>
-            <button class="btn btn-primary" @onclick="PickHero">Choose Your Hero</button>
-        </li>
     </ul>
+
 </div>
+
+<button class="btn btn-primary content" @onclick="PickHero">Choose Your Hero</button>
+
+
 @code {
     [Parameter] public bool BanTanks { get; set; } = false;
     [Parameter] public bool BanDps { get; set; } = false;

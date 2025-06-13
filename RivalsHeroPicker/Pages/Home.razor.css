@@ -1,12 +1,15 @@
 .content {
+    width: auto;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .content ul {
     width: auto;
-    border: 1px solid blue;
+    border: 1px solid lightblue;
     list-style-type: none;
 }
 .content ul li {
